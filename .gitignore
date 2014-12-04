@@ -1,0 +1,26 @@
+# build app files
+*.apk
+*.ap_
+
+# Generated files
+bin/
+gen/
+lint.xml
+proguard/
+build/
+
+# Local configs
+local.properties
+
+# intelli
+.idea
+*.iml
+*.ipr
+*.iws
+
+# mac
+.Trashes
+.DS_Store
+
+# Gradle
+.gradle
