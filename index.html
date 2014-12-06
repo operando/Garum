@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
@@ -11,41 +11,47 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <title>Garum by operando</title>
-  </head>
+</head>
 
-  <body>
-    <div id="container">
-      <div class="inner">
+<body>
+<div id="container">
+    <div class="inner">
 
         <header>
-          <h1>Garum</h1>
-          <h2>Annotation style SharedPreferences</h2>
+            <h1>Garum</h1>
+
+            <h2>Annotation style SharedPreferences</h2>
         </header>
 
         <section id="downloads" class="clearfix">
-          <a href="https://github.com/operando/Garum/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/operando/Garum/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/operando/Garum" id="view-on-github" class="button"><span>View on GitHub</span></a>
+            <a href="https://github.com/operando/Garum/zipball/master" id="download-zip"
+               class="button"><span>Download .zip</span></a>
+            <a href="https://github.com/operando/Garum/tarball/master" id="download-tar-gz"
+               class="button"><span>Download .tar.gz</span></a>
+            <a href="https://github.com/operando/Garum" id="view-on-github" class="button"><span>View on GitHub</span></a>
         </section>
 
         <hr>
 
         <section id="main_content">
-          <h1>
-<a id="garum" class="anchor" href="#garum" aria-hidden="true"><span class="octicon octicon-link"></span></a>Garum</h1>
+            <h1>
+                <a id="garum" class="anchor" href="#garum" aria-hidden="true"><span
+                        class="octicon octicon-link"></span></a>Garum</h1>
 
-<p>Annotation style SharedPreferences.</p>
+            <p>Annotation style SharedPreferences.</p>
 
-<p><img src="image_garum.jpg" alt="Garum"></p>
+            <p><img src="images/image_garum.jpg" alt="Garum"></p>
 
-<h1>
-<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use</h1>
+            <h1>
+                <a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span
+                        class="octicon octicon-link"></span></a>How to use</h1>
 
-<h2>
-<a id="model" class="anchor" href="#model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Model</h2>
+            <h2>
+                <a id="model" class="anchor" href="#model" aria-hidden="true"><span
+                        class="octicon octicon-link"></span></a>Model</h2>
 
 <pre><code>@Pref(name = "app_status")
-public class AppStatus extends PrefModel {
+    public class AppStatus extends PrefModel {
 
     @PrefKey
     public String appName;
@@ -55,71 +61,104 @@ public class AppStatus extends PrefModel {
 
     @PrefKey
     public boolean showNotification;
-}
+    }
 </code></pre>
 
-<h2>
-<a id="save" class="anchor" href="#save" aria-hidden="true"><span class="octicon octicon-link"></span></a>Save</h2>
+            <h2>
+                <a id="save" class="anchor" href="#save" aria-hidden="true"><span
+                        class="octicon octicon-link"></span></a>Save</h2>
 
 <pre><code>AppStatus appStatus = new AppStatus();
-appStatus.appName = "Garum";
-appStatus.startupCount = ++appStatus.startupCount;
-appStatus.showNotification = true;
-appStatus.save();
+    appStatus.appName = "Garum";
+    appStatus.startupCount = ++appStatus.startupCount;
+    appStatus.showNotification = true;
+    appStatus.save();
 </code></pre>
 
-<h2>
-<a id="xml" class="anchor" href="#xml" aria-hidden="true"><span class="octicon octicon-link"></span></a>XML</h2>
+            <h2>
+                <a id="xml" class="anchor" href="#xml" aria-hidden="true"><span
+                        class="octicon octicon-link"></span></a>XML</h2>
 
-<p>/data/data//shared_prefs/app_status.xml</p>
+            <p>/data/data//shared_prefs/app_status.xml</p>
 
 <pre><code>&lt;?xml version='1.0' encoding='utf-8' standalone='yes' ?&gt;
-&lt;map&gt;
+    &lt;map&gt;
     &lt;string name="appName"&gt;Garum&lt;/string&gt;
     &lt;int name="startupCount" value="10" /&gt;
     &lt;boolean name="showNotification" value="true" /&gt;
-&lt;/map&gt;
+    &lt;/map&gt;
 
 </code></pre>
 
-<h2>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+            <h2>
+                <a id="dowonload" class="anchor" href="#dowonload" aria-hidden="true"><span
+                        class="octicon octicon-link"></span></a>Dowonload</h2>
 
-<p><a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Version 2.0</a></p>
+            <section id="download_jar_section" class="clearfix">
+                <a id="download_jar" href="latest_jar/garum-0.0.1.jar" class="button"><span>Garum 0.0.1
+                    JAR</span></a>
+            </section>
+
+            <br>
+
+            <h2>
+                <a id="license" class="anchor" href="#license" aria-hidden="true"><span
+                        class="octicon octicon-link"></span></a>License</h2>
+
+            <p><a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Version 2.0</a></p>
 
 <pre><code>Copyright (C) 2014 Shinobu Okano
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
+    http://www.apache.org/licenses/LICENSE-2.0
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
 </code></pre>
         </section>
 
         <footer>
-          Garum is maintained by <a href="https://github.com/operando">operando</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+            Garum is maintained by <a href="https://github.com/operando">operando</a><br>
+            This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile
+            theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
         </footer>
 
-                  <script type="text/javascript">
+        <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
+
+
+
+
+
+
+
+
+
+        </script>
+        <script type="text/javascript">
             try {
               var pageTracker = _gat._getTracker("UA-57409728-1");
             pageTracker._trackPageview();
             } catch(err) {}
-          </script>
 
-      </div>
+
+
+
+
+
+
+
+
+        </script>
+
     </div>
-  </body>
+</div>
+</body>
 </html>
