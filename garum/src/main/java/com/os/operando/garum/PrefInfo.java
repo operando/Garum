@@ -28,6 +28,9 @@ public class PrefInfo {
         if (prefAnnotation != null) {
             prefName = prefAnnotation.name();
             mode = prefAnnotation.mode();
+        } else {
+            prefName = type.getSimpleName();
+            mode = Pref.MODE.MODE_PRIVATE;
         }
         List<Field> fields = new LinkedList<Field>(ReflectionUtil.getDeclaredPrefKeyFields(type));
         Collections.reverse(fields);
