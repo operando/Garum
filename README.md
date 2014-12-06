@@ -47,6 +47,10 @@ appStatus.save();
 
 ```
 
+## Download
+
+[Download the latest JAR](https://github.com/operando/Garum/blob/gh-pages/latest_jar/garum-0.0.1.jar?raw=true).
+
 ## License
 
 [Apache Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
