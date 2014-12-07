@@ -47,6 +47,15 @@ appStatus.save();
 
 ```
 
+## Documentation
+
+Please refer to the Wiki.
+
+* [Home](https://github.com/operando/Garum/wiki)
+* [Introduction](https://github.com/operando/Garum/wiki/Introduction)
+* [Creating your SharedPreferences model](https://github.com/operando/Garum/wiki/Creating-your-SharedPreferences-model)
+* [@Pref Annotation](https://github.com/operando/Garum/wiki/@Pref-Annotation)
+
 ## Download
 
 [Download the latest JAR](https://github.com/operando/Garum/blob/gh-pages/latest_jar/garum-0.0.1.jar?raw=true).
