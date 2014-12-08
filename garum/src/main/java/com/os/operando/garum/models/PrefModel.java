@@ -93,7 +93,7 @@ public abstract class PrefModel {
                     } else if (fieldType.equals(String.class)) {
                         final DefaultString defaultString = field.getAnnotation(DefaultString.class);
                         if (defaultString == null) {
-                            field.set(this, "");
+                            field.set(this, null);
                         } else {
                             int resId = defaultString.redId();
                             if (resId == -1) {
@@ -160,6 +160,8 @@ public abstract class PrefModel {
             field.setAccessible(true);
             try {
                 Object value = field.get(this);
+
+                // can not be cast to the null except String class.
                 if (value == null && !fieldType.equals(String.class)) {
                     continue;
                 }

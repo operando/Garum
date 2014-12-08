@@ -21,7 +21,7 @@ import lombok.ToString;
 public class PrefTest extends PrefModel {
 
     @PrefKey
-    @DefaultString("null")
+    @DefaultString("test")
     private String str;
 
     @PrefKey
@@ -37,7 +37,7 @@ public class PrefTest extends PrefModel {
 
     // DefaultValue < redId < Save Value
     @PrefKey
-    @DefaultString(value = "null", redId = R.string.hello_world)
+    @DefaultString(value = "test", redId = R.string.hello_world)
     private String strRes;
 
     @PrefKey
