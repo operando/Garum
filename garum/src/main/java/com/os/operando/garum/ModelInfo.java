@@ -3,6 +3,7 @@ package com.os.operando.garum;
 import android.content.Context;
 
 import com.os.operando.garum.models.PrefModel;
+import com.os.operando.garum.serializers.CalendarSerializer;
 import com.os.operando.garum.serializers.DateSerializer;
 import com.os.operando.garum.serializers.TypeSerializer;
 import com.os.operando.garum.utils.GarumLog;
@@ -12,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -26,6 +28,7 @@ public class ModelInfo {
     private Map<Class<?>, TypeSerializer> typeSerializers = new HashMap<Class<?>, TypeSerializer>() {
         {
             put(java.util.Date.class, new DateSerializer());
+            put(Calendar.class, new CalendarSerializer());
         }
     };
 
