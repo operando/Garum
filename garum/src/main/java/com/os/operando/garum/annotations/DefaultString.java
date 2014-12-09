@@ -1,5 +1,7 @@
 package com.os.operando.garum.annotations;
 
+import com.os.operando.garum.ResId;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -10,5 +12,5 @@ import java.lang.annotation.Target;
 public @interface DefaultString {
     String value();
 
-    int redId() default -1;
+    int redId() default ResId.DEFAULT_VALUE;
 }
