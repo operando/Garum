@@ -10,11 +10,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Configuration {
+
     private Context context;
     private List<Class<? extends PrefModel>> modelClasses;
     private List<Class<? extends TypeSerializer>> typeSerializers;
     private int cacheSize;
-
 
     private Configuration(Context context) {
         this.context = context;
@@ -43,9 +43,7 @@ public class Configuration {
     public static class Builder {
 
         private static final int DEFAULT_CACHE_SIZE = 1024;
-
         private Context context;
-
         private Integer cacheSize;
         private List<Class<? extends PrefModel>> modelClasses = new ArrayList<Class<? extends PrefModel>>();
         private List<Class<? extends TypeSerializer>> typeSerializers;
@@ -54,10 +52,6 @@ public class Configuration {
             this.context = context.getApplicationContext();
             cacheSize = DEFAULT_CACHE_SIZE;
         }
-
-        //////////////////////////////////////////////////////////////////////////////////////
-        // PUBLIC METHODS
-        //////////////////////////////////////////////////////////////////////////////////////
 
         public Builder setCacheSize(int cacheSize) {
             this.cacheSize = cacheSize;
@@ -83,7 +77,6 @@ public class Configuration {
             if (typeSerializers == null) {
                 typeSerializers = new ArrayList<Class<? extends TypeSerializer>>();
             }
-
             typeSerializers.add(typeSerializer);
             return this;
         }
@@ -92,7 +85,6 @@ public class Configuration {
             if (this.typeSerializers == null) {
                 this.typeSerializers = new ArrayList<Class<? extends TypeSerializer>>();
             }
-
             this.typeSerializers.addAll(Arrays.asList(typeSerializers));
             return this;
         }
@@ -105,25 +97,13 @@ public class Configuration {
         public Configuration create() {
             Configuration configuration = new Configuration(context);
             configuration.cacheSize = cacheSize;
-
-
-            // Get model classes from meta-data
+            // todo Get model classes from meta-data
             if (modelClasses != null) {
                 configuration.modelClasses = modelClasses;
-            } else {
-//                final String modelList = ReflectionUtil.getMetaData(context, AA_MODELS);
-//                if (modelList != null) {
-//                    configuration.mModelClasses = loadModelList(modelList.split(","));
-//                }
             }
-
+            // todo Get serializer classes from meta-data
             if (typeSerializers != null) {
                 configuration.typeSerializers = typeSerializers;
-            } else {
-//                final String serializerList = ReflectionUtils.getMetaData(mContext, AA_SERIALIZERS);
-//                if (serializerList != null) {
-//                    configuration.mTypeSerializers = loadSerializerList(serializerList.split(","));
-//                }
             }
             return configuration;
         }
