@@ -3,7 +3,7 @@ package com.os.operando.garum.serializers;
 
 import java.util.Date;
 
-public class DateSerializer extends TypeSerializer<Date, Long> {
+public final class DateSerializer extends TypeSerializer<Date, Long> {
     public Class<Date> getDeserializedType() {
         return Date.class;
     }
