@@ -25,7 +25,7 @@ public @interface Pref {
         }
     }
 
-    String name();
+    String name() default "";
 
     MODE mode() default MODE.MODE_PRIVATE;
 }

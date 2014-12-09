@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Build;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
 
 import com.os.operando.garum.PrefInfo;
 import com.os.operando.garum.annotations.DefaultBoolean;
@@ -56,9 +58,15 @@ public abstract class PrefModel {
     private void load() {
         Context context = Cache.getContext();
         Resources resources = context.getResources();
-        SharedPreferences sp = Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB ?
-                context.getSharedPreferences(prefInfo.getPrefName(), Context.MODE_PRIVATE)
-                : context.getSharedPreferences(prefInfo.getPrefName(), prefInfo.getMode().getMode());
+        SharedPreferences sp;
+        String prefName = prefInfo.getPrefName();
+        if (TextUtils.isEmpty(prefName)) {
+            sp = PreferenceManager.getDefaultSharedPreferences(context);
+        } else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+            sp = context.getSharedPreferences(prefName, Context.MODE_PRIVATE);
+        } else {
+            sp = context.getSharedPreferences(prefName, prefInfo.getMode().getMode());
+        }
         editor = sp.edit();
         Map<String, ?> all = sp.getAll();
         for (Field field : prefInfo.getKeys()) {
