@@ -58,7 +58,7 @@ Please refer to the Wiki.
 
 ## Download
 
-[Download the latest JAR](https://github.com/operando/Garum/blob/gh-pages/latest_jar/garum-0.0.1.jar?raw=true).
+[Download the latest JAR](https://github.com/operando/Garum/blob/gh-pages/latest_jar/garum-0.0.2.jar?raw=true).
 
 ## License
 
