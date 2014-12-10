@@ -1,11 +1,14 @@
 package com.os.operando.garum;
 
 import android.content.Context;
+import android.net.Uri;
 
 import com.os.operando.garum.models.PrefModel;
 import com.os.operando.garum.serializers.CalendarSerializer;
 import com.os.operando.garum.serializers.DateSerializer;
+import com.os.operando.garum.serializers.FileSerializer;
 import com.os.operando.garum.serializers.TypeSerializer;
+import com.os.operando.garum.serializers.UriSerializer;
 import com.os.operando.garum.utils.GarumLog;
 import com.os.operando.garum.utils.ReflectionUtil;
 
@@ -29,6 +32,8 @@ public class ModelInfo {
         {
             put(java.util.Date.class, new DateSerializer());
             put(Calendar.class, new CalendarSerializer());
+            put(Uri.class, new UriSerializer());
+            put(File.class, new FileSerializer());
         }
     };
 
