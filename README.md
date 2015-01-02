@@ -55,6 +55,7 @@ Please refer to the Wiki.
 * [Download](https://github.com/operando/Garum/wiki/Download)
 * [Introduction](https://github.com/operando/Garum/wiki/Introduction)
 * [Creating your SharedPreferences model](https://github.com/operando/Garum/wiki/Creating-your-SharedPreferences-model)
+* [Type Serializers](https://github.com/operando/Garum/wiki/Type-serializers)
 * [@Pref Annotation](https://github.com/operando/Garum/wiki/@Pref-Annotation)
 
 ## Download
