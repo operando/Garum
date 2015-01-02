@@ -58,7 +58,19 @@ Please refer to the Wiki.
 
 ## Download
 
-[Download the latest JAR](https://github.com/operando/Garum/blob/gh-pages/latest_jar/garum-0.0.2.jar?raw=true).
+[Download the latest JAR][1] or grab via Maven:
+```xml
+<dependency>
+    <groupId>com.github.operando</groupId>
+    <artifactId>garum</artifactId>
+    <version>0.0.2</version>
+</dependency>
+```
+
+or Gradle:
+```groovy
+compile 'com.github.operando:garum:0.0.2'
+```
 
 ## License
 
@@ -77,3 +89,5 @@ Please refer to the Wiki.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+    
+[1]: https://search.maven.org/remote_content?g=com.github.operando&a=garum&v=LATEST
