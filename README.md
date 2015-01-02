@@ -52,6 +52,7 @@ appStatus.save();
 Please refer to the Wiki.
 
 * [Home](https://github.com/operando/Garum/wiki)
+* [Download](https://github.com/operando/Garum/wiki/Download)
 * [Introduction](https://github.com/operando/Garum/wiki/Introduction)
 * [Creating your SharedPreferences model](https://github.com/operando/Garum/wiki/Creating-your-SharedPreferences-model)
 * [@Pref Annotation](https://github.com/operando/Garum/wiki/@Pref-Annotation)
