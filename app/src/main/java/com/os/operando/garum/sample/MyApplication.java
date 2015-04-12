@@ -9,10 +9,11 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Garum.initialize(getApplicationContext());
+        Garum.initialize(getApplicationContext(), true);
 
 //        Configuration.Builder builder = new Configuration.Builder(getApplicationContext());
-//        builder.setModelClasses(AppStatus.class, PrefModel.class, UseStatus.class);
-//        Garum.initialize(getApplicationContext(), true);
+//        builder.setModelClasses(PrefTest.class, AppStatus.class, PrefModel.class, UseStatus.class, EnumModel.class);
+//        builder.setTypeSerializers(ProgramLanguageSerializer.class);
+//        Garum.initialize(builder.create(), true);
     }
 }
