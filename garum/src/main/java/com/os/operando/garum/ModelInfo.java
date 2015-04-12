@@ -53,6 +53,17 @@ public class ModelInfo {
         return typeSerializers.get(type);
     }
 
+    public void setTypeSerializer(Class<? extends TypeSerializer> typeSerializer) {
+        try {
+            TypeSerializer instance = typeSerializer.newInstance();
+            typeSerializers.put(instance.getDeserializedType(), instance);
+        } catch (InstantiationException e) {
+            GarumLog.e("Couldn't instantiate TypeSerializer.", e);
+        } catch (IllegalAccessException e) {
+            GarumLog.e("IllegalAccessException", e);
+        }
+    }
+
     private void scanForModel(Context context, String packages) throws IOException {
         String packageName = context.getPackageName();
         String sourcePath = context.getApplicationInfo().sourceDir;
@@ -135,6 +146,10 @@ public class ModelInfo {
                     Class<? extends PrefModel> modelClass = (Class<? extends PrefModel>) discoveredClass;
                     prefInfos.put(modelClass, new PrefInfo(modelClass));
                 }
+                if (ReflectionUtil.isTypeSerializer(discoveredClass)) {
+                    Class<? extends TypeSerializer> typeSerializer = (Class<? extends TypeSerializer>) discoveredClass;
+                    setTypeSerializer(typeSerializer);
+                }
             } catch (ClassNotFoundException e) {
             }
         }
@@ -155,14 +170,7 @@ public class ModelInfo {
         final List<Class<? extends TypeSerializer>> typeSerializerList = configuration.getTypeSerializers();
         if (typeSerializers != null) {
             for (Class<? extends TypeSerializer> typeSerializer : typeSerializerList) {
-                try {
-                    TypeSerializer instance = typeSerializer.newInstance();
-                    typeSerializers.put(instance.getDeserializedType(), instance);
-                } catch (InstantiationException e) {
-                    GarumLog.e("Couldn't instantiate TypeSerializer.", e);
-                } catch (IllegalAccessException e) {
-                    GarumLog.e("IllegalAccessException", e);
-                }
+                setTypeSerializer(typeSerializer);
             }
         }
 
