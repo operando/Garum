@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+## Version 0.0.3 *(2015-04-12)*
+
+* Fix bug
+ * Auto class load if not loaded TypeSerializer
+
+
 ## Version 0.0.2 *(2014-12-10)*
 
 * New Serializers
