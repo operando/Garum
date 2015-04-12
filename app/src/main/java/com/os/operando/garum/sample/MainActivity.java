@@ -1,15 +1,20 @@
 package com.os.operando.garum.sample;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.os.operando.garum.sample.enums.ProgramLanguage;
 import com.os.operando.garum.sample.models.AppStatus;
+import com.os.operando.garum.sample.models.EnumModel;
 import com.os.operando.garum.sample.models.PrefTest;
 import com.os.operando.garum.sample.models.UseStatus;
 
+import java.io.File;
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -21,7 +26,13 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new PrefTest().save();
+        PrefTest prefTest = new PrefTest();
+        prefTest.setFile(new File("../test"));
+        prefTest.setUri(Uri.parse("content://test/test"));
+        prefTest.save();
+        PrefTest prefTest2 = new PrefTest();
+        Log.d("Garum", prefTest2.toString());
+        Log.d("Garum", prefTest2.getFile().toString());
         UseStatus s = new UseStatus();
         Date date = s.getLastUsed();
         if (date != null) {
@@ -29,6 +40,12 @@ public class MainActivity extends ActionBarActivity {
         } else {
             ((TextView) findViewById(R.id.last_used_date)).setText("last used  : null");
         }
+
+        EnumModel em = new EnumModel();
+        Log.d("Garum", em.toString());
+        em.programLanguage = ProgramLanguage.RUBY;
+        em.save();
+        Log.d("Garum", em.toString());
     }
 
     @Override
@@ -36,6 +53,7 @@ public class MainActivity extends ActionBarActivity {
         super.onDestroy();
         UseStatus s = new UseStatus();
         s.setLastUsed(new Date());
+        s.setCalendar(Calendar.getInstance());
         s.save();
     }
 

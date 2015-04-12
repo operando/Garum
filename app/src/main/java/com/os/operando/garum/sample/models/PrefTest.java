@@ -1,6 +1,8 @@
 package com.os.operando.garum.sample.models;
 
 
+import android.net.Uri;
+
 import com.os.operando.garum.annotations.DefaultBoolean;
 import com.os.operando.garum.annotations.DefaultInt;
 import com.os.operando.garum.annotations.DefaultString;
@@ -10,6 +12,7 @@ import com.os.operando.garum.annotations.PrefKey;
 import com.os.operando.garum.models.PrefModel;
 import com.os.operando.garum.sample.R;
 
+import java.io.File;
 import java.util.Set;
 
 import lombok.Data;
@@ -43,4 +46,10 @@ public class PrefTest extends PrefModel {
     @PrefKey
     @DefaultStringSet(value = {"1", "2", "3"}, redId = R.array.test_string_array)
     private Set<String> set;
+
+    @PrefKey
+    private File file;
+
+    @PrefKey
+    private Uri uri;
 }
