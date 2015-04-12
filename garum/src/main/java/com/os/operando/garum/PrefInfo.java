@@ -19,7 +19,6 @@ public class PrefInfo {
 
     private Class<? extends PrefModel> type;
     private String prefName;
-    private Pref.MODE mode;
     private Map<Field, String> keyNames = new LinkedHashMap<Field, String>();
 
     public PrefInfo(Class<? extends PrefModel> type) {
@@ -27,10 +26,8 @@ public class PrefInfo {
         final Pref prefAnnotation = type.getAnnotation(Pref.class);
         if (prefAnnotation != null) {
             prefName = prefAnnotation.name();
-            mode = prefAnnotation.mode();
         } else {
             prefName = type.getSimpleName();
-            mode = Pref.MODE.MODE_PRIVATE;
         }
         List<Field> fields = new LinkedList<Field>(ReflectionUtil.getDeclaredPrefKeyFields(type));
         Collections.reverse(fields);
@@ -48,10 +45,6 @@ public class PrefInfo {
 
     public String getPrefName() {
         return prefName;
-    }
-
-    public Pref.MODE getMode() {
-        return mode;
     }
 
     public Collection<Field> getKeys() {

@@ -62,10 +62,8 @@ public abstract class PrefModel {
         String prefName = prefInfo.getPrefName();
         if (TextUtils.isEmpty(prefName)) {
             sp = PreferenceManager.getDefaultSharedPreferences(context);
-        } else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+        } else{
             sp = context.getSharedPreferences(prefName, Context.MODE_PRIVATE);
-        } else {
-            sp = context.getSharedPreferences(prefName, prefInfo.getMode().getMode());
         }
         editor = sp.edit();
         Map<String, ?> all = sp.getAll();
