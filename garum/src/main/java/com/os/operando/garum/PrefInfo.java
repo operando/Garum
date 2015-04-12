@@ -9,7 +9,6 @@ import com.os.operando.garum.utils.ReflectionUtil;
 
 import java.lang.reflect.Field;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,16 +29,16 @@ public class PrefInfo {
             prefName = type.getSimpleName();
         }
         List<Field> fields = new LinkedList<Field>(ReflectionUtil.getDeclaredPrefKeyFields(type));
-        Collections.reverse(fields);
         for (Field field : fields) {
-            if (field.isAnnotationPresent(PrefKey.class)) {
-                final PrefKey keyAnnotation = field.getAnnotation(PrefKey.class);
-                String keyName = keyAnnotation.value();
-                if (TextUtils.isEmpty(keyName)) {
-                    keyName = field.getName();
-                }
-                keyNames.put(field, keyName);
+            if (!field.isAnnotationPresent(PrefKey.class)) {
+                continue;
             }
+            final PrefKey keyAnnotation = field.getAnnotation(PrefKey.class);
+            String keyName = keyAnnotation.value();
+            if (TextUtils.isEmpty(keyName)) {
+                keyName = field.getName();
+            }
+            keyNames.put(field, keyName);
         }
     }
 
