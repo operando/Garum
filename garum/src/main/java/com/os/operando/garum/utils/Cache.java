@@ -1,7 +1,6 @@
 package com.os.operando.garum.utils;
 
 import android.content.Context;
-import android.support.v4.util.LruCache;
 
 import com.os.operando.garum.Configuration;
 import com.os.operando.garum.ModelInfo;
@@ -14,10 +13,8 @@ import java.util.Collection;
 
 public final class Cache {
 
-    public static final int DEFAULT_CACHE_SIZE = 1024;
     private static Context context;
     private static ModelInfo modelInfo;
-    private static LruCache<String, PrefModel> entities;
     private static boolean isInitialized = false;
 
     private Cache() {
@@ -34,14 +31,12 @@ public final class Cache {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        entities = new LruCache<String, PrefModel>(DEFAULT_CACHE_SIZE);
         isInitialized = true;
         GarumLog.v("Garum initialized successfully.");
     }
 
 
     public static synchronized void dispose() {
-        entities = null;
         modelInfo = null;
         isInitialized = false;
         GarumLog.v("Garum disposed. Call initialize to use library.");
