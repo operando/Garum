@@ -118,8 +118,7 @@ public class ModelInfo {
                     @SuppressWarnings("unchecked")
                     Class<? extends PrefModel> modelClass = (Class<? extends PrefModel>) discoveredClass;
                     prefInfos.put(modelClass, new PrefInfo(modelClass));
-                }
-                if (ReflectionUtil.isTypeSerializer(discoveredClass)) {
+                } else if (ReflectionUtil.isTypeSerializer(discoveredClass)) {
                     Class<? extends TypeSerializer> typeSerializer = (Class<? extends TypeSerializer>) discoveredClass;
                     setTypeSerializer(typeSerializer);
                 }
