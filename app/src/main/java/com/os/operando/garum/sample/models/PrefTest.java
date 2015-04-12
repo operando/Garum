@@ -20,7 +20,7 @@ import lombok.ToString;
 
 @Data
 @ToString
-@Pref(name = "pref_test", mode = Pref.MODE.MODE_PRIVATE)
+@Pref(name = "pref_test")
 public class PrefTest extends PrefModel {
 
     @PrefKey
