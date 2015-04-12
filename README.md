@@ -65,13 +65,13 @@ Please refer to the Wiki.
 <dependency>
     <groupId>com.github.operando</groupId>
     <artifactId>garum</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
 </dependency>
 ```
 
 or Gradle:
 ```groovy
-compile 'com.github.operando:garum:0.0.2'
+compile 'com.github.operando:garum:0.0.3'
 ```
 
 ## License
