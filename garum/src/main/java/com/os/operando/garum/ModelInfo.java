@@ -140,7 +140,7 @@ public class ModelInfo {
         }
 
         final List<Class<? extends TypeSerializer>> typeSerializerList = configuration.getTypeSerializers();
-        if (typeSerializers != null) {
+        if (typeSerializerList != null) {
             for (Class<? extends TypeSerializer> typeSerializer : typeSerializerList) {
                 setTypeSerializer(typeSerializer);
             }
