@@ -18,27 +18,14 @@ public class PrefInfo {
 
     private Class<? extends PrefModel> type;
     private String prefName;
-    private Map<Field, String> keyNames = new LinkedHashMap<Field, String>();
+    private Map<Field, String> keyNames = new LinkedHashMap<>();
 
     public PrefInfo(Class<? extends PrefModel> type) {
         this.type = type;
-        final Pref prefAnnotation = type.getAnnotation(Pref.class);
-        if (prefAnnotation != null) {
-            prefName = prefAnnotation.name();
-        } else {
-            prefName = type.getSimpleName();
-        }
-        List<Field> fields = new LinkedList<Field>(ReflectionUtil.getDeclaredPrefKeyFields(type));
+        setPrefName(type);
+        List<Field> fields = new LinkedList<>(ReflectionUtil.getDeclaredPrefKeyFields(type));
         for (Field field : fields) {
-            if (!field.isAnnotationPresent(PrefKey.class)) {
-                continue;
-            }
-            final PrefKey keyAnnotation = field.getAnnotation(PrefKey.class);
-            String keyName = keyAnnotation.value();
-            if (TextUtils.isEmpty(keyName)) {
-                keyName = field.getName();
-            }
-            keyNames.put(field, keyName);
+            putKeyName(field);
         }
     }
 
@@ -52,5 +39,26 @@ public class PrefInfo {
 
     public String getKeyName(Field field) {
         return keyNames.get(field);
+    }
+
+    void setPrefName(Class<? extends PrefModel> type) {
+        final Pref prefAnnotation = type.getAnnotation(Pref.class);
+        if (prefAnnotation != null) {
+            prefName = prefAnnotation.name();
+        } else {
+            prefName = type.getSimpleName();
+        }
+    }
+
+    void putKeyName(Field field) {
+        if (field == null || !field.isAnnotationPresent(PrefKey.class)) {
+            throw new IllegalArgumentException();
+        }
+        final PrefKey keyAnnotation = field.getAnnotation(PrefKey.class);
+        String keyName = keyAnnotation.value();
+        if (TextUtils.isEmpty(keyName)) {
+            keyName = field.getName();
+        }
+        keyNames.put(field, keyName);
     }
 }
