@@ -35,8 +35,8 @@ public class MainActivity extends ActionBarActivity {
         prefTest.setUri(Uri.parse("content://test/test"));
         prefTest.save();
         PrefTest prefTest2 = new PrefTest();
-        Log.d("Garum", prefTest2.toString());
-        Log.d("Garum", prefTest2.getFile().toString());
+        Log.d(Tags.Garum, prefTest2.toString());
+        Log.d(Tags.Garum, prefTest2.getFile().toString());
         UseStatus s = new UseStatus();
         Date date = s.getLastUsed();
         if (date != null) {
@@ -46,10 +46,10 @@ public class MainActivity extends ActionBarActivity {
         }
 
         EnumModel em = new EnumModel();
-        Log.d("Garum", em.toString());
+        Log.d(Tags.Garum, em.toString());
         em.programLanguage = ProgramLanguage.RUBY;
         em.save();
-        Log.d("Garum", em.toString());
+        Log.d(Tags.Garum, em.toString());
 
         testJSONObject();
     }
@@ -72,14 +72,14 @@ public class MainActivity extends ActionBarActivity {
     public void onSave(View v) {
         AppStatus appStatus = new AppStatus();
         Log.d(TAG, appStatus.toString());
-        appStatus.appName = "Garum";
+        appStatus.appName = Tags.Garum;
         appStatus.showNotification = true;
         appStatus.save();
     }
 
     private void testJSONObject() {
         JSONObjectTest joTest = new JSONObjectTest();
-        Log.d("Garum", joTest.toString());
+        Log.d(Tags.Garum, joTest.toString());
         JSONObject jo = new JSONObject();
         try {
             jo.put("test", "test");
