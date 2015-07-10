@@ -10,10 +10,12 @@ import android.widget.TextView;
 import com.os.operando.garum.sample.enums.ProgramLanguage;
 import com.os.operando.garum.sample.models.AppStatus;
 import com.os.operando.garum.sample.models.EnumModel;
+import com.os.operando.garum.sample.models.JSONArrayTest;
 import com.os.operando.garum.sample.models.JSONObjectTest;
 import com.os.operando.garum.sample.models.PrefTest;
 import com.os.operando.garum.sample.models.UseStatus;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -52,6 +54,7 @@ public class MainActivity extends ActionBarActivity {
         Log.d(Tags.Garum, em.toString());
 
         testJSONObject();
+        testJSONArray();
     }
 
     @Override
@@ -89,5 +92,16 @@ public class MainActivity extends ActionBarActivity {
         }
         joTest.jsonObject = jo;
         joTest.save();
+    }
+
+    private void testJSONArray() {
+        JSONArrayTest jaTest = new JSONArrayTest();
+        Log.d(Tags.Garum, jaTest.toString());
+        JSONArray ja = new JSONArray();
+        for (int i = 0; i < 10; i++) {
+            ja.put(i);
+        }
+        jaTest.jsonArray = ja;
+        jaTest.save();
     }
 }
