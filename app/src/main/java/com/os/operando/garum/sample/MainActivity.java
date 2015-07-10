@@ -10,8 +10,12 @@ import android.widget.TextView;
 import com.os.operando.garum.sample.enums.ProgramLanguage;
 import com.os.operando.garum.sample.models.AppStatus;
 import com.os.operando.garum.sample.models.EnumModel;
+import com.os.operando.garum.sample.models.JSONObjectTest;
 import com.os.operando.garum.sample.models.PrefTest;
 import com.os.operando.garum.sample.models.UseStatus;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.util.Calendar;
@@ -46,6 +50,8 @@ public class MainActivity extends ActionBarActivity {
         em.programLanguage = ProgramLanguage.RUBY;
         em.save();
         Log.d("Garum", em.toString());
+
+        testJSONObject();
     }
 
     @Override
@@ -69,5 +75,19 @@ public class MainActivity extends ActionBarActivity {
         appStatus.appName = "Garum";
         appStatus.showNotification = true;
         appStatus.save();
+    }
+
+    private void testJSONObject() {
+        JSONObjectTest joTest = new JSONObjectTest();
+        Log.d("Garum", joTest.toString());
+        JSONObject jo = new JSONObject();
+        try {
+            jo.put("test", "test");
+            jo.put("int", 10);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        joTest.jsonObject = jo;
+        joTest.save();
     }
 }
