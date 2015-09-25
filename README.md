@@ -74,6 +74,18 @@ or Gradle:
 compile 'com.github.operando:garum:0.0.3'
 ```
 
+## ProGuard
+
+```
+# Garum
+-keepclasseswithmembers class com.os.operando.garum.annotations.** {
+    *;
+}
+-keepclasseswithmembernames class * extends com.os.operando.garum.models.PrefModel {
+    *;
+}
+```
+
 ## License
 
 [Apache Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
