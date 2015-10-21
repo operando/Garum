@@ -51,7 +51,7 @@
                         class="octicon octicon-link"></span></a>Model</h2>
 
                 <pre><code>@Pref(name = "app_status")
-    public class AppStatus extends PrefModel {
+public class AppStatus extends PrefModel {
 
     @PrefKey
     public String appName;
@@ -61,7 +61,7 @@
 
     @PrefKey
     public boolean showNotification;
-    }
+}
 </code></pre>
 
                 <h2>
@@ -69,10 +69,10 @@
                         class="octicon octicon-link"></span></a>Save</h2>
 
                 <pre><code>AppStatus appStatus = new AppStatus();
-    appStatus.appName = "Garum";
-    appStatus.startupCount = ++appStatus.startupCount;
-    appStatus.showNotification = true;
-    appStatus.save();
+appStatus.appName = "Garum";
+appStatus.startupCount = ++appStatus.startupCount;
+appStatus.showNotification = true;
+appStatus.save();
 </code></pre>
 
                 <h2>
@@ -82,12 +82,11 @@
                 <p>/data/data/[package name]/shared_prefs/app_status.xml</p>
 
                 <pre><code>&lt;?xml version='1.0' encoding='utf-8' standalone='yes' ?&gt;
-    &lt;map&gt;
+&lt;map&gt;
     &lt;string name="appName"&gt;Garum&lt;/string&gt;
     &lt;int name="startupCount" value="10" /&gt;
     &lt;boolean name="showNotification" value="true" /&gt;
-    &lt;/map&gt;
-
+&lt;/map&gt;
 </code></pre>
 
                 <h2>
@@ -95,7 +94,7 @@
                         class="octicon octicon-link"></span></a>Dowonload</h2>
 
                 <section id="download_jar_section" class="clearfix">
-                    <a id="download_jar" href="https://search.maven.org/remote_content?g=com.github.operando&a=garum&v=LATEST" class="button"><span>Garum 0.0.3 JAR</span></a>
+                    <a id="download_jar" href="https://search.maven.org/remote_content?g=com.github.operando&a=garum&v=LATEST" class="button"><span>Garum 0.1.0 JAR</span></a>
                 </section>
 
                 <br>
@@ -111,6 +110,18 @@
                 <h3>Gradle</h3>
                 <pre class="prettyprint">compile 'com.github.operando:garum:<span class="version"><em>(insert latest version)</em></span>'</pre>
                 <p>Be sure to supress this lint warning in your <code>build.gradle</code>.</p>
+
+                <br>
+
+                <h3>ProGuard</h3>
+                <pre><code># Garum
+-keepclasseswithmembers class com.os.operando.garum.annotations.** {
+    *;
+}
+-keepclasseswithmembernames class * extends com.os.operando.garum.models.PrefModel {
+    *;
+}
+</code></pre>
 
                 <br>
 
