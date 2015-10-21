@@ -19,7 +19,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.6</java.version>
+        <java.version>1.7</java.version>
         <junit.version>4.10</junit.version>
         <android.version>4.1.1.4</android.version>
         <android.support-v4.version>r7</android.support-v4.version>
@@ -159,9 +159,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>2.9</version>
-                    <configuration>
-                        <additionalparam>-Xdoclint:none</additionalparam>
-                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
