@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+## Version 0.1.1 *(2016-04-09)*
+
+* Fix bug
+ * Not clear Type Serializers field after PrefModel#clear method execution  [#7](https://github.com/operando/Garum/issues/7)
+
 ## Version 0.1.0 *(2015-10-22)*
 
 * Fix bug

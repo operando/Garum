@@ -65,13 +65,13 @@ Please refer to the Wiki.
 <dependency>
     <groupId>com.github.operando</groupId>
     <artifactId>garum</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
 </dependency>
 ```
 
 or Gradle:
 ```groovy
-compile 'com.github.operando:garum:0.1.0'
+compile 'com.github.operando:garum:0.1.1'
 ```
 
 ## ProGuard
