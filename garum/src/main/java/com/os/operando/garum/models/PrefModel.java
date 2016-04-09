@@ -105,6 +105,11 @@ public abstract class PrefModel {
                             final DefaultStringSet defaultStringSet = field.getAnnotation(DefaultStringSet.class);
                             field.set(this, DefaultValueUtil.getDefaultSetValue(defaultStringSet, resources));
                         }
+                    } else {
+                        final TypeSerializer typeSerializer = Cache.getParserForType(fieldType);
+                        if (typeSerializer != null) {
+                            field.set(this, null);
+                        }
                     }
                 }
             } catch (IllegalAccessException e) {
