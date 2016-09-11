@@ -8,4 +8,8 @@ public abstract class TypeSerializer<D, S> {
     public abstract S serialize(D data);
 
     public abstract D deserialize(S data);
+
+    public D getDefaultValue() {
+        return null;
+    }
 }
