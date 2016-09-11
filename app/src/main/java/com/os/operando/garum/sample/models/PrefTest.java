@@ -15,10 +15,12 @@ import com.os.operando.garum.sample.R;
 import java.io.File;
 import java.util.Set;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
-@Data
+@Setter
+@Getter
 @ToString
 @Pref(name = "pref_test")
 public class PrefTest extends PrefModel {
