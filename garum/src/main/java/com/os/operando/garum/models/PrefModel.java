@@ -60,7 +60,7 @@ public abstract class PrefModel {
         String prefName = prefInfo.getPrefName();
         if (TextUtils.isEmpty(prefName)) {
             sp = PreferenceManager.getDefaultSharedPreferences(context);
-        } else{
+        } else {
             sp = context.getSharedPreferences(prefName, Context.MODE_PRIVATE);
         }
         editor = sp.edit();
@@ -106,7 +106,7 @@ public abstract class PrefModel {
                     } else {
                         final TypeSerializer typeSerializer = Cache.getParserForType(fieldType);
                         if (typeSerializer != null) {
-                            field.set(this, null);
+                            field.set(this, typeSerializer.getDefaultValue());
                         }
                     }
                 }
