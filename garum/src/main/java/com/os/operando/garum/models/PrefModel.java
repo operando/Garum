@@ -84,19 +84,19 @@ public abstract class PrefModel {
                 } else {
                     if (fieldType.equals(Integer.class) || fieldType.equals(int.class)) {
                         final DefaultInt defaultInt = field.getAnnotation(DefaultInt.class);
-                        field.set(this, DefaultValueUtil.getDefaulIntValue(defaultInt, resources));
+                        field.set(this, DefaultValueUtil.getDefaultIntValue(defaultInt, resources));
                     } else if (fieldType.equals(String.class)) {
                         final DefaultString defaultString = field.getAnnotation(DefaultString.class);
-                        field.set(this, DefaultValueUtil.getDefaulStringValue(defaultString, resources));
+                        field.set(this, DefaultValueUtil.getDefaultStringValue(defaultString, resources));
                     } else if (fieldType.equals(Boolean.class) || fieldType.equals(boolean.class)) {
                         final DefaultBoolean defaultBoolean = field.getAnnotation(DefaultBoolean.class);
-                        field.set(this, DefaultValueUtil.getDefaulBooleanValue(defaultBoolean, resources));
+                        field.set(this, DefaultValueUtil.getDefaultBooleanValue(defaultBoolean, resources));
                     } else if (fieldType.equals(Long.class) || fieldType.equals(long.class)) {
                         final DefaultLong defaultLong = field.getAnnotation(DefaultLong.class);
-                        field.set(this, DefaultValueUtil.getDefaulLongValue(defaultLong));
+                        field.set(this, DefaultValueUtil.getDefaultLongValue(defaultLong));
                     } else if (fieldType.equals(Float.class) || fieldType.equals(float.class)) {
                         final DefaultFloat defaultFloat = field.getAnnotation(DefaultFloat.class);
-                        field.set(this, DefaultValueUtil.getDefaulFloatValue(defaultFloat));
+                        field.set(this, DefaultValueUtil.getDefaultFloatValue(defaultFloat));
                     } else if (fieldType.equals(Set.class) && field.getGenericType() instanceof ParameterizedType) {
                         ParameterizedType parameterizedType = (ParameterizedType) field.getGenericType();
                         if (Arrays.asList(parameterizedType.getActualTypeArguments()).contains(String.class)) {

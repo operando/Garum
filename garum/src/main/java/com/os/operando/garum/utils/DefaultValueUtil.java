@@ -16,7 +16,7 @@ import java.util.Set;
 
 public class DefaultValueUtil {
 
-    public static int getDefaulIntValue(DefaultInt defaultInt, Resources resources) {
+    public static int getDefaultIntValue(DefaultInt defaultInt, Resources resources) {
         if (defaultInt == null) {
             return 0;
         }
@@ -27,7 +27,7 @@ public class DefaultValueUtil {
         return resources.getInteger(resId);
     }
 
-    public static String getDefaulStringValue(DefaultString defaultString, Resources resources) {
+    public static String getDefaultStringValue(DefaultString defaultString, Resources resources) {
         if (defaultString == null) {
             return null;
         }
@@ -38,7 +38,7 @@ public class DefaultValueUtil {
         return resources.getString(resId);
     }
 
-    public static boolean getDefaulBooleanValue(DefaultBoolean defaultBoolean, Resources resources) {
+    public static boolean getDefaultBooleanValue(DefaultBoolean defaultBoolean, Resources resources) {
         if (defaultBoolean == null) {
             return false;
         }
@@ -49,14 +49,14 @@ public class DefaultValueUtil {
         return resources.getBoolean(resId);
     }
 
-    public static long getDefaulLongValue(DefaultLong defaultLong) {
+    public static long getDefaultLongValue(DefaultLong defaultLong) {
         if (defaultLong == null) {
             return 0;
         }
         return defaultLong.value();
     }
 
-    public static float getDefaulFloatValue(DefaultFloat defaultFloat) {
+    public static float getDefaultFloatValue(DefaultFloat defaultFloat) {
         if (defaultFloat == null) {
             return 0.0f;
         }
