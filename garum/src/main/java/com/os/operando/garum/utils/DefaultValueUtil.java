@@ -63,17 +63,15 @@ public class DefaultValueUtil {
         return defaultFloat.value();
     }
 
-    public static Set<String> getDefaultSetValue(DefaultStringSet defaultStringSet, Resources
-            resources) {
+    public static Set<String> getDefaultSetValue(DefaultStringSet defaultStringSet, Resources resources) {
         if (defaultStringSet == null) {
-            return new HashSet<String>();
+            return new HashSet<>();
         }
         int resId = defaultStringSet.redId();
         if (isResIdDefault(resId)) {
-            return new HashSet<String>(Arrays.asList(defaultStringSet.value()));
+            return new HashSet<>(Arrays.asList(defaultStringSet.value()));
         }
-        return new HashSet<String>(
-                Arrays.asList(resources.getStringArray(resId)));
+        return new HashSet<>(Arrays.asList(resources.getStringArray(resId)));
     }
 
     private static boolean isResIdDefault(int resId) {
