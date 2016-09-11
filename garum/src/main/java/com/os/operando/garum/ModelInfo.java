@@ -6,6 +6,7 @@ import android.net.Uri;
 import com.os.operando.garum.models.PrefModel;
 import com.os.operando.garum.serializers.CalendarSerializer;
 import com.os.operando.garum.serializers.DateSerializer;
+import com.os.operando.garum.serializers.DoubleSerializer;
 import com.os.operando.garum.serializers.FileSerializer;
 import com.os.operando.garum.serializers.JSONArraySerializer;
 import com.os.operando.garum.serializers.JSONObjectSerializer;
@@ -41,6 +42,7 @@ public class ModelInfo {
             put(File.class, new FileSerializer());
             put(JSONObject.class, new JSONObjectSerializer());
             put(JSONArray.class, new JSONArraySerializer());
+            put(Double.class, new DoubleSerializer());
         }
     };
 
