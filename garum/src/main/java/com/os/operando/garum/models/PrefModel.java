@@ -42,8 +42,7 @@ public abstract class PrefModel {
 
     public boolean save() {
         setValuesEditor();
-        boolean success = editor.commit();
-        return success;
+        return editor.commit();
     }
 
     public boolean clear() {
