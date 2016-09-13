@@ -1,4 +1,16 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+    }
+}
 
 android {
     compileSdkVersion 24
@@ -30,4 +42,80 @@ dependencies {
     androidTestCompile 'junit:junit:4.12'
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile 'com.android.support.test:rules:0.5'
+}
+
+group = 'com.os.operando.garum'
+version = '0.9.0'
+
+def siteUrl = 'https://github.com/operando/Garum'
+def gitUrl = 'https://github.com/operando/Garum.git'
+
+bintray {
+    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
+    key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
+    configurations = ['archives']
+    pkg {
+        repo = 'maven'
+        name = 'garum'
+        vcsUrl = gitUrl
+        desc = 'Annotation style SharedPreferences.'
+        issueTrackerUrl = 'https://github.com/operando/Garum/issues'
+        licenses = ['Apache-2.0']
+        vcsUrl = gitUrl
+        labels = ['android']
+        publicDownloadNumbers = true
+
+        githubRepo = 'operando/Garum'
+        githubReleaseNotesFile = 'CHANGELOG.md'
+    }
+}
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                name 'garum'
+                url siteUrl
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'operando'
+                        name 'Shinobu Okano'
+                        email 'okanoshinobu8@gmail.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+
+                }
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
 }

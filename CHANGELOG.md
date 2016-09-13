@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+## Version 0.9.0 *(2016-09-14)*
+
+* New Serializer
+ * [DoubleSerializer](https://github.com/operando/Garum/blob/master/garum/src/main/java/com/os/operando/garum/serializers/DoubleSerializer.java)
+* Custom Type Serializer is able to set the default value
+
 ## Version 0.1.1 *(2016-04-09)*
 
 * Fix bug

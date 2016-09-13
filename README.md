@@ -63,15 +63,15 @@ Please refer to the Wiki.
 [Download the latest JAR][1] or grab via Maven:
 ```xml
 <dependency>
-    <groupId>com.github.operando</groupId>
+    <groupId>com.os.operando.garum</groupId>
     <artifactId>garum</artifactId>
-    <version>0.1.1</version>
+    <version>0.9.0</version>
 </dependency>
 ```
 
 or Gradle:
 ```groovy
-compile 'com.github.operando:garum:0.1.1'
+compile 'com.os.operando.garum:garum:0.9.0'
 ```
 
 ## ProGuard
