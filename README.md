@@ -8,7 +8,7 @@ Annotation style SharedPreferences.
 
 ## Model
 
-```
+```java
 @Pref(name = "app_status")
 public class AppStatus extends PrefModel {
 
@@ -25,7 +25,7 @@ public class AppStatus extends PrefModel {
 
 ## Save
 
-```
+```java
 AppStatus appStatus = new AppStatus();
 appStatus.appName = "Garum";
 appStatus.startupCount = ++appStatus.startupCount;
@@ -37,7 +37,7 @@ appStatus.save();
 
 /data/data/[package name]/shared_prefs/app_status.xml
 
-```
+```xml
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
     <string name="appName">Garum</string>
@@ -60,7 +60,8 @@ Please refer to the Wiki.
 
 ## Download
 
-[Download the latest JAR][1] or grab via Maven:
+[ ![Download](https://api.bintray.com/packages/operandoos/maven/garum/images/download.svg) ](https://bintray.com/operandoos/maven/garum/_latestVersion) or grab via Maven:
+
 ```xml
 <dependency>
     <groupId>com.os.operando.garum</groupId>
@@ -70,6 +71,7 @@ Please refer to the Wiki.
 ```
 
 or Gradle:
+
 ```groovy
 compile 'com.os.operando.garum:garum:0.9.0'
 ```
@@ -103,5 +105,3 @@ compile 'com.os.operando.garum:garum:0.9.0'
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
-[1]: https://search.maven.org/remote_content?g=com.github.operando&a=garum&v=LATEST
