@@ -23,6 +23,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:24.2.1'
     provided 'org.projectlombok:lombok:1.14.8'
-//    compile 'com.github.operando:garum:0.0.3'
-     compile project(':garum')
+    compile 'com.os.operando.garum:garum:0.9.0'
+//     compile project(':garum')
 }
