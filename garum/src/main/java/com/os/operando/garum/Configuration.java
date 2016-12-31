@@ -14,7 +14,6 @@ public class Configuration {
     private Context context;
     private List<Class<? extends PrefModel>> modelClasses;
     private List<Class<? extends TypeSerializer>> typeSerializers;
-    private int cacheSize;
 
     private Configuration(Context context) {
         this.context = context;
@@ -32,30 +31,18 @@ public class Configuration {
         return typeSerializers;
     }
 
-    public int getCacheSize() {
-        return cacheSize;
-    }
-
     public boolean isValid() {
         return modelClasses != null && modelClasses.size() > 0;
     }
 
     public static class Builder {
 
-        private static final int DEFAULT_CACHE_SIZE = 1024;
         private Context context;
-        private Integer cacheSize;
         private List<Class<? extends PrefModel>> modelClasses = new ArrayList<>();
         private List<Class<? extends TypeSerializer>> typeSerializers;
 
         public Builder(Context context) {
             this.context = context.getApplicationContext();
-            cacheSize = DEFAULT_CACHE_SIZE;
-        }
-
-        public Builder setCacheSize(int cacheSize) {
-            this.cacheSize = cacheSize;
-            return this;
         }
 
         public Builder addModelClass(Class<? extends PrefModel> modelClass) {
@@ -96,7 +83,6 @@ public class Configuration {
 
         public Configuration create() {
             Configuration configuration = new Configuration(context);
-            configuration.cacheSize = cacheSize;
             // todo Get model classes from meta-data
             if (modelClasses != null) {
                 configuration.modelClasses = modelClasses;
