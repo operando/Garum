@@ -45,7 +45,7 @@ public class Configuration {
         private static final int DEFAULT_CACHE_SIZE = 1024;
         private Context context;
         private Integer cacheSize;
-        private List<Class<? extends PrefModel>> modelClasses = new ArrayList<Class<? extends PrefModel>>();
+        private List<Class<? extends PrefModel>> modelClasses = new ArrayList<>();
         private List<Class<? extends TypeSerializer>> typeSerializers;
 
         public Builder(Context context) {
@@ -75,7 +75,7 @@ public class Configuration {
 
         public Builder addTypeSerializer(Class<? extends TypeSerializer> typeSerializer) {
             if (typeSerializers == null) {
-                typeSerializers = new ArrayList<Class<? extends TypeSerializer>>();
+                typeSerializers = new ArrayList<>();
             }
             typeSerializers.add(typeSerializer);
             return this;
@@ -83,7 +83,7 @@ public class Configuration {
 
         public Builder addTypeSerializers(Class<? extends TypeSerializer>... typeSerializers) {
             if (this.typeSerializers == null) {
-                this.typeSerializers = new ArrayList<Class<? extends TypeSerializer>>();
+                this.typeSerializers = new ArrayList<>();
             }
             this.typeSerializers.addAll(Arrays.asList(typeSerializers));
             return this;

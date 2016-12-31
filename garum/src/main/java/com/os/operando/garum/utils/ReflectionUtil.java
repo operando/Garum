@@ -18,7 +18,7 @@ public final class ReflectionUtil {
     public static Set<Field> getDeclaredPrefKeyFields(Class<?> type) {
         Set<Field> declaredPrefKeyFields = Collections.emptySet();
         if (ReflectionUtil.isSubclassOf(type, PrefModel.class) || PrefModel.class.equals(type)) {
-            declaredPrefKeyFields = new LinkedHashSet<Field>();
+            declaredPrefKeyFields = new LinkedHashSet<>();
             Field[] fields = type.getDeclaredFields();
             for (Field field : fields) {
                 if (field.isAnnotationPresent(PrefKey.class)) {

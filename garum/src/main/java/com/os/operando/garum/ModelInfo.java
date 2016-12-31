@@ -33,7 +33,7 @@ import dalvik.system.DexFile;
 
 public class ModelInfo {
 
-    private Map<Class<? extends PrefModel>, PrefInfo> prefInfos = new HashMap<Class<? extends PrefModel>, PrefInfo>();
+    private Map<Class<? extends PrefModel>, PrefInfo> prefInfos = new HashMap<>();
     private Map<Class<?>, TypeSerializer> typeSerializers = new HashMap<Class<?>, TypeSerializer>() {
         {
             put(java.util.Date.class, new DateSerializer());
