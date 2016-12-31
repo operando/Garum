@@ -70,7 +70,8 @@ public class Configuration {
             return this;
         }
 
-        public Builder addTypeSerializers(Class<? extends TypeSerializer>... typeSerializers) {
+        @SafeVarargs
+        public final Builder addTypeSerializers(Class<? extends TypeSerializer>... typeSerializers) {
             if (this.typeSerializers == null) {
                 this.typeSerializers = new ArrayList<>();
             }
@@ -78,7 +79,8 @@ public class Configuration {
             return this;
         }
 
-        public Builder setTypeSerializers(Class<? extends TypeSerializer>... typeSerializers) {
+        @SafeVarargs
+        public final Builder setTypeSerializers(Class<? extends TypeSerializer>... typeSerializers) {
             this.typeSerializers = Arrays.asList(typeSerializers);
             return this;
         }
