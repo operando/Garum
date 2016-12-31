@@ -50,12 +50,14 @@ public class Configuration {
             return this;
         }
 
-        public Builder addModelClasses(Class<? extends PrefModel>... modelClasses) {
+        @SafeVarargs
+        public final Builder addModelClasses(Class<? extends PrefModel>... modelClasses) {
             this.modelClasses.addAll(Arrays.asList(modelClasses));
             return this;
         }
 
-        public Builder setModelClasses(Class<? extends PrefModel>... modelClasses) {
+        @SafeVarargs
+        public final Builder setModelClasses(Class<? extends PrefModel>... modelClasses) {
             this.modelClasses = Arrays.asList(modelClasses);
             return this;
         }
