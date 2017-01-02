@@ -50,12 +50,14 @@ public class Configuration {
             return this;
         }
 
-        public Builder addModelClasses(Class<? extends PrefModel>... modelClasses) {
+        @SafeVarargs
+        public final Builder addModelClasses(Class<? extends PrefModel>... modelClasses) {
             this.modelClasses.addAll(Arrays.asList(modelClasses));
             return this;
         }
 
-        public Builder setModelClasses(Class<? extends PrefModel>... modelClasses) {
+        @SafeVarargs
+        public final Builder setModelClasses(Class<? extends PrefModel>... modelClasses) {
             this.modelClasses = Arrays.asList(modelClasses);
             return this;
         }
@@ -68,7 +70,8 @@ public class Configuration {
             return this;
         }
 
-        public Builder addTypeSerializers(Class<? extends TypeSerializer>... typeSerializers) {
+        @SafeVarargs
+        public final Builder addTypeSerializers(Class<? extends TypeSerializer>... typeSerializers) {
             if (this.typeSerializers == null) {
                 this.typeSerializers = new ArrayList<>();
             }
@@ -76,7 +79,8 @@ public class Configuration {
             return this;
         }
 
-        public Builder setTypeSerializers(Class<? extends TypeSerializer>... typeSerializers) {
+        @SafeVarargs
+        public final Builder setTypeSerializers(Class<? extends TypeSerializer>... typeSerializers) {
             this.typeSerializers = Arrays.asList(typeSerializers);
             return this;
         }
