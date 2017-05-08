@@ -2,10 +2,8 @@ package com.os.operando.garum.utils;
 
 import com.os.operando.garum.annotations.PrefKey;
 import com.os.operando.garum.models.PrefModel;
-import com.os.operando.garum.serializers.TypeSerializer;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -31,14 +29,6 @@ public final class ReflectionUtil {
             }
         }
         return declaredPrefKeyFields;
-    }
-
-    public static boolean isModel(Class<?> type) {
-        return isSubclassOf(type, PrefModel.class) && (!Modifier.isAbstract(type.getModifiers()));
-    }
-
-    public static boolean isTypeSerializer(Class<?> type) {
-        return isSubclassOf(type, TypeSerializer.class) && (!Modifier.isAbstract(type.getModifiers()));
     }
 
     public static boolean isSubclassOf(Class<?> type, Class<?> superClass) {
