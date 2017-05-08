@@ -16,12 +16,10 @@ import java.util.Map;
 
 public class PrefInfo {
 
-    private Class<? extends PrefModel> type;
     private String prefName;
     private Map<Field, String> keyNames = new LinkedHashMap<>();
 
     public PrefInfo(Class<? extends PrefModel> type) {
-        this.type = type;
         setPrefName(type);
         List<Field> fields = new LinkedList<>(ReflectionUtil.getDeclaredPrefKeyFields(type));
         for (Field field : fields) {
