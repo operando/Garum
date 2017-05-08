@@ -87,11 +87,11 @@ public class Configuration {
 
         public Configuration create() {
             Configuration configuration = new Configuration(context);
-            // todo Get model classes from meta-data
+
             if (modelClasses != null) {
                 configuration.modelClasses = modelClasses;
             }
-            // todo Get serializer classes from meta-data
+
             if (typeSerializers != null) {
                 configuration.typeSerializers = typeSerializers;
             }
